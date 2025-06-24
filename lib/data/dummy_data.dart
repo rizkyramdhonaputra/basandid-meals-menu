@@ -62,4 +62,14 @@ final dummyCategories = [
       title: 'Makanan Pedas',
       color: Colors.lime,
     ),
+    Category(
+      id: 'c13',
+      title: 'Makanan Manis',
+      color: Colors.deepOrange,
+    ),
+    Category(
+      id: 'c14',
+      title: 'Makanan Gurih',
+      color: Colors.lightBlue,
+    ),
   ];
