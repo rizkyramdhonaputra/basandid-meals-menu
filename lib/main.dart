@@ -1,6 +1,8 @@
 // ignore_for_file: prefer_final_parameters
 
+import 'package:aplikasi_menumakanan/data/dummy_data.dart';
 import 'package:aplikasi_menumakanan/screens/category_screen.dart';
+import 'package:aplikasi_menumakanan/screens/meals_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -18,6 +20,6 @@ class MenuApps extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(home: const CategoryScreen());
+    return MaterialApp(home: MealsScreen(title: "Test", listMeals: dummyMeals));
   }
 }
