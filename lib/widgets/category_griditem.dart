@@ -18,8 +18,8 @@ class CategoryGriditem extends StatelessWidget {
           borderRadius: BorderRadius.circular(12),
           gradient: LinearGradient(
             colors: [
-              category.color.withOpacity(0.35),
-              category.color.withOpacity(0.9),
+              category.color.withValues(alpha: 0.7),
+              category.color.withValues(alpha: 0.7),
             ],
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,
