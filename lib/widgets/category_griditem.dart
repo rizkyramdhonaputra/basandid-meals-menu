@@ -2,14 +2,15 @@ import 'package:aplikasi_menumakanan/models/category_models.dart';
 import 'package:flutter/material.dart';
 
 class CategoryGriditem extends StatelessWidget {
-  const CategoryGriditem({super.key, required this.category});
+  const CategoryGriditem({super.key, required this.category, required this.onSelectCategory});
 
   final Category category;
+  final void Function() onSelectCategory;
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () {},
+      onTap: onSelectCategory,
       splashColor: Theme.of(context).primaryColor,
       borderRadius: BorderRadius.circular(12),
       child: Container(
