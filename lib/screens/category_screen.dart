@@ -7,10 +7,10 @@ import 'package:flutter/material.dart';
 class CategoryScreen extends StatelessWidget {
   const CategoryScreen({super.key});
 
-  void _selectCategory(BuildContext contex, Category category) {
+  void _selectCategory(BuildContext context, Category category) {
     final filteredMeals = dummyMeals.where((meal) => meal.category.contains(category.id)).toList();
 
-    Navigator.of(contex).push(
+    Navigator.of(context).push(
       MaterialPageRoute(
         builder: (ctx) => MealsScreen(title: category.title, listMeals: filteredMeals),
       ),
