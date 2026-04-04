@@ -1,4 +1,5 @@
 import 'package:aplikasi_menumakanan/models/meals_models.dart';
+import 'package:aplikasi_menumakanan/widgets/meal_item.dart';
 import 'package:flutter/material.dart';
 
 class MealsScreen extends StatelessWidget {
@@ -19,9 +20,7 @@ class MealsScreen extends StatelessWidget {
               color: Theme.of(context).colorScheme.primary,
             ),
           ),
-          SizedBox(
-            height: 20,
-          ),
+          SizedBox(height: 20),
           Text(
             'Try selecting a different category!',
             style: Theme.of(context).textTheme.bodyLarge,
@@ -33,17 +32,7 @@ class MealsScreen extends StatelessWidget {
     if (listMeals.isNotEmpty) {
       content = ListView.builder(
         itemCount: listMeals.length,
-        itemBuilder: (ctx, index) {
-          final meal = listMeals[index];
-          return ListTile(
-            leading: CircleAvatar(backgroundImage: NetworkImage(meal.imageUrl)),
-            title: Text(meal.title),
-            subtitle: Text('${meal.duration} min'),
-            onTap: () {
-              // Navigate to meal details screen
-            },
-          );
-        },
+        itemBuilder: (ctx, index) => MealItem(meal: listMeals[index]),
       );
     }
 
