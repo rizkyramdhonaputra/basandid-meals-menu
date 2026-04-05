@@ -1,4 +1,6 @@
+import 'package:aplikasi_menumakanan/data/dummy_data.dart';
 import 'package:aplikasi_menumakanan/models/meals_models.dart';
+import 'package:aplikasi_menumakanan/screens/meals_detailedscreen.dart';
 import 'package:aplikasi_menumakanan/widgets/meal_item.dart';
 import 'package:flutter/material.dart';
 
@@ -7,6 +9,17 @@ class MealsScreen extends StatelessWidget {
 
   final String title;
   final List<Meals> listMeals;
+
+  void _selectMeal(BuildContext context, Meals meal) {
+    final selectedMeal = dummyMeals.singleWhere((m) => m.id == meal.id);
+
+    Navigator.of(context).push(
+      MaterialPageRoute(
+        builder: (ctx) => MealsDetailedscreen(meal: selectedMeal),
+      ),
+    );
+  }
+
 
   @override
   Widget build(BuildContext context) {
@@ -32,7 +45,7 @@ class MealsScreen extends StatelessWidget {
     if (listMeals.isNotEmpty) {
       content = ListView.builder(
         itemCount: listMeals.length,
-        itemBuilder: (ctx, index) => MealItem(meal: listMeals[index]),
+        itemBuilder: (ctx, index) => MealItem(meal: listMeals[index], onSelectMeal: () => _selectMeal(context, listMeals[index]),),
       );
     }
 
