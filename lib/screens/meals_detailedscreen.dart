@@ -22,16 +22,41 @@ class MealsDetailedscreen extends StatelessWidget {
             const SizedBox(height: 14),
             Text(
               'Ingredients',
-              style: Theme.of(context).textTheme.headlineSmall,
+              style: Theme.of(context).textTheme.headlineSmall!.copyWith(
+                    color: Theme.of(context).colorScheme.primary,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 24,
+                  ),
             ),
             const SizedBox(height: 14),
             for (final ingredient in meal.ingredients)
-              Text(ingredient, style: Theme.of(context).textTheme.bodyMedium),
+              Text(
+                ingredient,
+                style: Theme.of(context).textTheme.bodyMedium,
+                textAlign: TextAlign.center,
+              ),
             const SizedBox(height: 14),
-            Text('Steps', style: Theme.of(context).textTheme.headlineSmall),
+            Text(
+              'Steps',
+              style: Theme.of(context).textTheme.headlineSmall!.copyWith(
+                    color: Theme.of(context).colorScheme.primary,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 24,
+                  ),
+              textAlign: TextAlign.center,
+              softWrap: true,
+              overflow: TextOverflow.ellipsis,
+            ),
             const SizedBox(height: 14),
             for (final step in meal.steps)
-              Text(step, style: Theme.of(context).textTheme.bodyMedium),
+              Text(
+                step,
+                style: Theme.of(context).textTheme.bodyMedium,
+                textAlign: TextAlign.center,
+                softWrap: true,
+                overflow: TextOverflow.ellipsis,
+                maxLines: 2,
+              ),
           ],
         ),
       ),

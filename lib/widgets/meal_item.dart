@@ -7,7 +7,7 @@ class MealItem extends StatelessWidget {
   const MealItem({super.key, required this.meal, required this.onSelectMeal});
 
   final Meals meal;
-  final Function() onSelectMeal;
+  final void Function() onSelectMeal;
 
   String get complexityText {
     return meal.complexity.name[0].toUpperCase() +
