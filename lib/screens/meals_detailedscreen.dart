@@ -2,14 +2,20 @@ import 'package:aplikasi_menumakanan/models/meals_models.dart';
 import 'package:flutter/material.dart';
 
 class MealsDetailedscreen extends StatelessWidget {
-  const MealsDetailedscreen({super.key, required this.meal});
+  const MealsDetailedscreen({super.key, required this.meal, required this.onToggleFavorite});
 
   final Meals meal;
+  final void Function(Meals meal) onToggleFavorite;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text(meal.title)),
+      appBar: AppBar(
+        title: Text(meal.title),
+        actions: [IconButton(onPressed: () {
+          onToggleFavorite(meal);
+        }, icon: Icon(Icons.favorite))],
+      ),
       body: SingleChildScrollView(
         child: Column(
           children: [
@@ -23,10 +29,10 @@ class MealsDetailedscreen extends StatelessWidget {
             Text(
               'Ingredients',
               style: Theme.of(context).textTheme.headlineSmall!.copyWith(
-                    color: Theme.of(context).colorScheme.primary,
-                    fontWeight: FontWeight.bold,
-                    fontSize: 24,
-                  ),
+                color: Theme.of(context).colorScheme.primary,
+                fontWeight: FontWeight.bold,
+                fontSize: 24,
+              ),
             ),
             const SizedBox(height: 14),
             for (final ingredient in meal.ingredients)
@@ -39,10 +45,10 @@ class MealsDetailedscreen extends StatelessWidget {
             Text(
               'Steps',
               style: Theme.of(context).textTheme.headlineSmall!.copyWith(
-                    color: Theme.of(context).colorScheme.primary,
-                    fontWeight: FontWeight.bold,
-                    fontSize: 24,
-                  ),
+                color: Theme.of(context).colorScheme.primary,
+                fontWeight: FontWeight.bold,
+                fontSize: 24,
+              ),
               textAlign: TextAlign.center,
               softWrap: true,
               overflow: TextOverflow.ellipsis,

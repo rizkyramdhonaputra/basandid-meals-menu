@@ -1,6 +1,6 @@
 // ignore_for_file: prefer_final_parameters
 
-import 'package:aplikasi_menumakanan/screens/category_screen.dart';
+import 'package:aplikasi_menumakanan/screens/tabs_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -18,6 +18,6 @@ class MenuApps extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(home: CategoryScreen(), theme: theme, title: 'Aplikasi Menu Makanan');
+    return MaterialApp(home: TabsScreen(), theme: theme, title: 'Aplikasi Menu Makanan');
   }
 }
