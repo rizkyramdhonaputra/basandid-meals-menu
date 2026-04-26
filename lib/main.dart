@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 final theme = ThemeData(
+  useMaterial3: true,
   colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepOrange),
   textTheme: GoogleFonts.latoTextTheme(),
 );
@@ -18,6 +19,10 @@ class MenuApps extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(home: TabsScreen(), theme: theme, title: 'Aplikasi Menu Makanan');
+    return MaterialApp(
+      home: TabsScreen(),
+      theme: theme,
+      title: 'Aplikasi Menu Makanan',
+    );
   }
 }
