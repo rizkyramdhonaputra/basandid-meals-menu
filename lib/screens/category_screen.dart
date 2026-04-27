@@ -6,13 +6,14 @@ import 'package:aplikasi_menumakanan/models/category_models.dart';
 import 'package:flutter/material.dart';
 
 class CategoryScreen extends StatelessWidget {
-  const CategoryScreen({super.key, required this.onToggleFavorite});
+  const CategoryScreen({super.key, required this.onToggleFavorite, required this.availableMeals});
 
   final void Function(Meals meal) onToggleFavorite;
+  final List<Meals> availableMeals;
 
   void _selectCategory(BuildContext context, Category category) {
     final filteredMeals =
-        dummyMeals
+        availableMeals
             .where((meal) => meal.category.contains(category.id))
             .toList();
 
