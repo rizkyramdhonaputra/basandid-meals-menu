@@ -8,11 +8,12 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:aplikasi_menumakanan/providers/filters_provider.dart';
 
 const kInitialFilters = {
-    Filters.gluttenFree: false,
-    Filters.lactoseFree: false,
-    Filters.vegetarian: false,
-    Filters.vegan: false,
-  };
+  Filters.gluttenFree: false,
+  Filters.lactoseFree: false,
+  Filters.vegetarian: false,
+  Filters.vegan: false,
+};
+
 class TabsScreen extends ConsumerStatefulWidget {
   const TabsScreen({super.key});
 
@@ -30,12 +31,10 @@ class _TabsScreenState extends ConsumerState<TabsScreen> {
   }
 
   void _selectScreen(String menuCode) async {
-      Navigator.of(context).pop();
+    Navigator.of(context).pop();
     if (menuCode == 'filters') {
       await Navigator.of(context).push<Map<Filters, bool>>(
-        MaterialPageRoute(
-          builder: (ctx) => const FiltersScreen(),
-        ),
+        MaterialPageRoute(builder: (ctx) => const FiltersScreen()),
       );
     }
   }
@@ -44,14 +43,14 @@ class _TabsScreenState extends ConsumerState<TabsScreen> {
   Widget build(BuildContext context) {
     final availableMeals = ref.watch(filteredMealsProvider);
 
-    Widget activePage = CategoryScreen(availableMeals: availableMeals); //default page
+    Widget activePage = CategoryScreen(
+      availableMeals: availableMeals,
+    ); //default page
     var activePageTitle = 'Categories';
 
     if (_selectedPageIndex == 1) {
       final favoriteMeals = ref.watch(favoritesMealsProvider);
-      activePage = MealsScreen(
-        listMeals: favoriteMeals,
-      );
+      activePage = MealsScreen(listMeals: favoriteMeals);
       activePageTitle = 'Your Favorites';
     }
 
@@ -62,11 +61,11 @@ class _TabsScreenState extends ConsumerState<TabsScreen> {
         onTap: _selectPage,
         currentIndex: _selectedPageIndex,
         items: [
-          BottomNavigationBarItem(
+          const BottomNavigationBarItem(
             icon: Icon(Icons.dining),
             label: 'Categories',
           ),
-          BottomNavigationBarItem(
+          const BottomNavigationBarItem(
             icon: Icon(Icons.favorite),
             label: 'Favorites',
           ),

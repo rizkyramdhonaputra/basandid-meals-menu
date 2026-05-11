@@ -21,7 +21,7 @@ class MenuApps extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: TabsScreen(),
+      home: const TabsScreen(),
       theme: theme,
       title: 'Aplikasi Menu Makanan',
     );

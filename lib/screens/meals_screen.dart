@@ -20,7 +20,6 @@ class MealsScreen extends StatelessWidget {
     );
   }
 
-
   @override
   Widget build(BuildContext context) {
     Widget content = Center(
@@ -33,7 +32,7 @@ class MealsScreen extends StatelessWidget {
               color: Theme.of(context).colorScheme.primary,
             ),
           ),
-          SizedBox(height: 20),
+          const SizedBox(height: 20),
           Text(
             'Try selecting a different category!',
             style: Theme.of(context).textTheme.bodyLarge,
@@ -45,10 +44,14 @@ class MealsScreen extends StatelessWidget {
     if (listMeals.isNotEmpty) {
       content = ListView.builder(
         itemCount: listMeals.length,
-        itemBuilder: (ctx, index) => MealItem(meal: listMeals[index], onSelectMeal: () => _selectMeal(context, listMeals[index]),),
+        itemBuilder:
+            (ctx, index) => MealItem(
+              meal: listMeals[index],
+              onSelectMeal: () => _selectMeal(context, listMeals[index]),
+            ),
       );
     }
-    
+
     if (title == null) {
       return content;
     }
